@@ -1,0 +1,19 @@
+{
+  "sku_count": 36,
+  "months": 24,
+  "inventory_value_inr": 2798215.55,
+  "reorder_now_count": 9,
+  "stockout_risk_count": 6,
+  "recommended_order_units": 11277,
+  "potential_release_inr": 1156358.88,
+  "abc_counts": {
+    "A": 20,
+    "B": 9,
+    "C": 7
+  },
+  "xyz_counts": {
+    "X": 28,
+    "Y": 7,
+    "Z": 1
+  }
+}

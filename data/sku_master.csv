@@ -1,0 +1,37 @@
+sku_id,product_name,category,unit_cost_inr,unit_price_inr,lead_time_days,order_cost_inr,holding_rate,current_stock_units,on_order_units
+SKU-028,Laundry Powder 1 kg,Home Care,53.34,79.27,14,1100,0.24,374,1604
+SKU-029,Dishwash Bar 200 g,Home Care,58.51,88.79,18,1100,0.24,5882,0
+SKU-030,Floor Cleaner 1 L,Home Care,63.75,101.36,21,1100,0.24,2100,0
+SKU-019,Daily Shampoo 180 ml,Personal Care,43.47,66.22,10,950,0.24,3666,0
+SKU-031,Toilet Cleaner 500 ml,Home Care,68.09,103.91,5,1100,0.24,76,0
+SKU-020,Herbal Shampoo 180 ml,Personal Care,45.08,69.11,14,950,0.24,1285,0
+SKU-010,Classic Salted Chips 52 g,Snacks,31.43,47.85,7,800,0.24,198,0
+SKU-021,Bath Soap 100 g,Personal Care,49.18,78.15,18,950,0.24,6476,1079
+SKU-032,Fabric Conditioner 500 ml,Home Care,73.82,114.34,7,1100,0.24,2517,0
+SKU-022,Face Wash 100 ml,Personal Care,56.8,91.48,21,950,0.24,2325,0
+SKU-011,Masala Chips 52 g,Snacks,32.7,46.36,10,800,0.24,5292,0
+SKU-012,Roasted Peanuts 100 g,Snacks,37.76,53.69,14,800,0.24,1717,0
+SKU-013,Cheese Puffs 45 g,Snacks,42.81,60.26,18,800,0.24,262,0
+SKU-033,Surface Spray 500 ml,Home Care,75.08,119.68,10,1100,0.24,625,0
+SKU-023,Body Lotion 200 ml,Personal Care,59.07,90.59,5,950,0.24,324,0
+SKU-002,Lime Soda 300 ml,Beverages,23.39,38.51,7,650,0.24,914,0
+SKU-014,Oat Cookies 120 g,Snacks,46.86,76.71,21,800,0.24,2919,667
+SKU-034,Garbage Bags 30 pack,Home Care,79.38,110.04,14,1100,0.24,91,0
+SKU-024,Toothpaste 150 g,Personal Care,64.17,93.11,7,950,0.24,2610,0
+SKU-003,Mango Drink 200 ml,Beverages,25.76,38.52,10,650,0.24,6417,0
+SKU-004,Energy Drink 250 ml,Beverages,31.12,41.39,14,650,0.24,2190,0
+SKU-001,Spark Cola 250 ml,Beverages,16.52,26.25,5,650,0.24,3422,0
+SKU-005,Bottled Water 1 L,Beverages,37.8,57.68,18,650,0.24,725,0
+SKU-015,Chilli Corn Snacks 60 g,Snacks,53.87,76.73,5,800,0.24,482,0
+SKU-025,Deodorant 150 ml,Personal Care,67.69,100.84,10,950,0.24,664,0
+SKU-006,Iced Tea Lemon 300 ml,Beverages,38.79,60.24,21,650,0.24,3060,0
+SKU-026,Hand Wash 250 ml,Personal Care,75.19,122.16,14,950,0.24,238,0
+SKU-035,Air Freshener 250 ml,Home Care,85.86,122.38,18,1100,0.24,846,199
+SKU-016,Salted Crackers 100 g,Snacks,56.33,87.01,7,800,0.24,32,0
+SKU-007,Orange Drink 200 ml,Beverages,44.19,72.04,5,650,0.24,685,329
+SKU-008,Coconut Water 200 ml,Beverages,47.98,71.83,7,650,0.24,137,0
+SKU-036,Kitchen Towels 2 roll,Home Care,89.45,130.22,21,1100,0.24,206,0
+SKU-017,Trail Mix 80 g,Snacks,62.55,99.92,10,800,0.24,602,0
+SKU-027,Hair Oil 200 ml,Personal Care,77.2,107.15,18,950,0.24,685,0
+SKU-009,Soda Water 750 ml,Beverages,55.21,77.92,10,650,0.24,610,0
+SKU-018,Chocolate Wafer 40 g,Snacks,64.66,88.24,14,800,0.24,129,0
