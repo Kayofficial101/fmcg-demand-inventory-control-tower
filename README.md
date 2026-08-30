@@ -1,32 +1,47 @@
 # FMCG inventory control tower
 
-An editable 36-SKU model for two daily questions: what needs to be ordered, and which excess-stock flags deserve a planner's review?
+This project turns demand and stock data into two daily planner lists: what needs to be ordered now, and what excess stock needs review.
 
-> Data note: the company, products and 24-month demand history are generated for this project.
+## The problem
+
+The model covers 36 products with different sales value and demand stability. Using one stock rule for every product would create shortages in important lines and excess inventory in slower ones.
+
+## What I built
+
+- An Excel control tower with editable assumptions and visible formulas.
+- ABC grouping based on annual consumption value.
+- XYZ grouping based on how stable or unpredictable demand is.
+- Safety stock, reorder point and recommended order calculations.
+- A Python calculation that checks the workbook results independently.
+- SQL queries that produce recurring order and excess-review queues.
 
 ![Inventory control tower](visuals/control-tower.png)
 
-## Current readout
+## Current output
 
 - Inventory value: **INR 2.80 million**
-- Order queue: **9 SKUs**
-- Stockout risk: **6 SKUs**
+- Products in the order queue: **9**
+- Products already at stockout risk: **6**
 - Recommended order quantity: **11,277 units**
-- Potential excess-stock review: **INR 1.16 million**
+- Inventory flagged for excess review: **INR 1.16 million**
 
-The six stockout-risk items come first. The excess figure is a review queue; expiry, promotions, supplier reliability and minimum order quantities still need to be checked.
+The six stockout-risk products come first. The excess figure is a review list, not an automatic disposal decision. Promotions, expiry, inbound orders, supplier reliability and minimum order quantities still need to be checked.
 
-## Workbook logic
+## Project files
 
-ABC ranks annual consumption value. XYZ groups demand by coefficient of variation. The workbook then calculates safety stock, reorder point, EOQ, order quantity and potential excess using visible formulas and editable parameters.
+| File | What it contains |
+|---|---|
+| [Excel control tower](excel/fmcg-inventory-control-tower.xlsx) | Dashboard, inventory policy and editable calculations |
+| [Case notes](CASE_STUDY.md) | The operating problem, current readout and planner sequence |
+| [SQL queues](sql/inventory_decisions.sql) | Order and excess-review queries |
+| [Python calculation](scripts/generate_and_analyze.py) | Data generation and an independent calculation of the policy |
+| [Data dictionary](DATA_DICTIONARY.md) | Meaning and format of every field |
 
-## Files
+## Before using this with live inventory
 
-- [Excel control tower](excel/fmcg-inventory-control-tower.xlsx)
-- [Case notes](CASE_STUDY.md)
-- [SQL queues](sql/inventory_decisions.sql)
-- [Data dictionary](DATA_DICTIONARY.md)
-- [Python calculation](scripts/generate_and_analyze.py)
+I would add weekly demand, supplier lead-time history, shelf life, case-pack sizes, promotion calendars and service-level costs. The policy should then be tested against actual fill rate and holding cost.
+
+The company, products and 24-month demand history were created for this project.
 
 ## Rebuild
 
@@ -37,6 +52,6 @@ node scripts/build_workbook.mjs
 
 ## Method references
 
-- Microsoft ABC analysis report: https://learn.microsoft.com/en-us/dynamics365/business-central/reports/report-723
-- Safety-stock and ABC-XYZ comparison: https://www.mdpi.com/2079-8954/12/7/260
-- Oracle reorder-point planning guide: https://docs.oracle.com/cd/B15436_02/current/acrobat/115invug.pdf
+- [Microsoft ABC analysis report](https://learn.microsoft.com/en-us/dynamics365/business-central/reports/report-723)
+- [Safety-stock and ABC-XYZ comparison](https://www.mdpi.com/2079-8954/12/7/260)
+- [Oracle reorder-point planning guide](https://docs.oracle.com/cd/B15436_02/current/acrobat/115invug.pdf)
