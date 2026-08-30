@@ -207,7 +207,7 @@ matrix.getRange("G:J").format.columnWidth = 19;
 dashboard.showGridLines = false;
 title(dashboard, "A1:L2", "FMCG Demand and Inventory Control Tower");
 dashboard.mergeCells("A3:L3");
-dashboard.getRange("A3").values = [["Synthetic 36-SKU portfolio | Formula-driven Excel model | Python and SQL reconciliation"]];
+dashboard.getRange("A3").values = [["Synthetic 36-SKU model | Formula-driven Excel analysis | Python and SQL reconciliation"]];
 dashboard.getRange("A3:L3").format = { fill: paleGray, font: { italic: true, color: muted }, verticalAlignment: "center" };
 const cards = [
   ["A5:B7", "Inventory value", "=SUM('SKU Policy'!AA5:AA40)", '"INR "#,##0'],
