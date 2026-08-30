@@ -1,57 +1,43 @@
 # FMCG inventory control tower
 
-This project turns demand and stock data into two daily planner lists: what needs to be ordered now, and what excess stock needs review.
+This project turns demand and stock data into two practical lists: what needs to be ordered now and what excess stock needs review.
 
-## The problem
+## What I was trying to solve
 
-The model covers 36 products with different sales value and demand stability. Using one stock rule for every product would create shortages in important lines and excess inventory in slower ones.
+The 36 products in the model have different sales value and demand stability. One stock rule for all of them would create shortages in important products and too much stock in slower ones.
 
 ## What I built
 
-- An Excel control tower with editable assumptions and visible formulas.
-- ABC grouping based on annual consumption value.
-- XYZ grouping based on how stable or unpredictable demand is.
-- Safety stock, reorder point and recommended order calculations.
-- A Python calculation that checks the workbook results independently.
-- SQL queries that produce recurring order and excess-review queues.
+1. Grouped products by annual consumption value using ABC analysis.
+2. Grouped demand as stable, variable or unpredictable using XYZ analysis.
+3. Calculated safety stock, reorder points and suggested order quantities.
+4. Built an Excel control tower for the planner.
+5. Used Python to check the workbook and SQL to create recurring work queues.
 
 ![Inventory control tower](visuals/control-tower.png)
 
 ## Current output
 
-- Inventory value: **INR 2.80 million**
+- Inventory value: **₹2.80 million**
 - Products in the order queue: **9**
 - Products already at stockout risk: **6**
-- Recommended order quantity: **11,277 units**
-- Inventory flagged for excess review: **INR 1.16 million**
+- Suggested order quantity: **11,277 units**
+- Inventory flagged for excess review: **₹1.16 million**
 
-The six stockout-risk products come first. The excess figure is a review list, not an automatic disposal decision. Promotions, expiry, inbound orders, supplier reliability and minimum order quantities still need to be checked.
+The stockout-risk products come first. Excess stock is a review queue, not an automatic disposal decision.
 
-## Project files
+## Tools used
 
-| File | What it contains |
-|---|---|
-| [Excel control tower](excel/fmcg-inventory-control-tower.xlsx) | Dashboard, inventory policy and editable calculations |
-| [Case notes](CASE_STUDY.md) | The operating problem, current readout and planner sequence |
-| [SQL queues](sql/inventory_decisions.sql) | Order and excess-review queries |
-| [Python calculation](scripts/generate_and_analyze.py) | Data generation and an independent calculation of the policy |
-| [Data dictionary](DATA_DICTIONARY.md) | Meaning and format of every field |
+Excel, Python, SQL, ABC-XYZ analysis, safety stock and reorder-point calculations.
 
-## Before using this with live inventory
+## Main files
 
-I would add weekly demand, supplier lead-time history, shelf life, case-pack sizes, promotion calendars and service-level costs. The policy should then be tested against actual fill rate and holding cost.
+- [Excel control tower](excel/fmcg-inventory-control-tower.xlsx): editable dashboard and calculations
+- [Case study](CASE_STUDY.md): problem, result and planner sequence
+- [SQL queues](sql/inventory_decisions.sql): order and excess-review lists
+- [Python model](scripts/generate_and_analyze.py): data build and independent check
+- [Data dictionary](DATA_DICTIONARY.md): meaning of every field
 
-The company, products and 24-month demand history were created for this project.
+The company, products and demand history were created for this project. A live version would also need supplier reliability, shelf life, pack sizes, promotions and actual service-level costs.
 
-## Rebuild
-
-```bash
-python scripts/generate_and_analyze.py
-node scripts/build_workbook.mjs
-```
-
-## Method references
-
-- [Microsoft ABC analysis report](https://learn.microsoft.com/en-us/dynamics365/business-central/reports/report-723)
-- [Safety-stock and ABC-XYZ comparison](https://www.mdpi.com/2079-8954/12/7/260)
-- [Oracle reorder-point planning guide](https://docs.oracle.com/cd/B15436_02/current/acrobat/115invug.pdf)
+Run `python scripts/generate_and_analyze.py` and `node scripts/build_workbook.mjs` to rebuild it.
