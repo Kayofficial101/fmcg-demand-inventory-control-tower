@@ -95,7 +95,7 @@ parameters.getRange("C5:C15").format.wrapText = true;
 
 // Demand history
 history.showGridLines = false;
-title(history, "A1:Y2", "Monthly demand history | 24 months | synthetic units");
+title(history, "A1:Y2", "Monthly demand history | 24 months");
 const historyHeaders = ["SKU ID", ...months];
 history.getRange("A4:Y4").values = [historyHeaders];
 header(history.getRange("A4:Y4"));
@@ -207,7 +207,7 @@ matrix.getRange("G:J").format.columnWidth = 19;
 dashboard.showGridLines = false;
 title(dashboard, "A1:L2", "FMCG Demand and Inventory Control Tower");
 dashboard.mergeCells("A3:L3");
-dashboard.getRange("A3").values = [["Synthetic 36-SKU model | Formula-driven Excel analysis | Python and SQL reconciliation"]];
+dashboard.getRange("A3").values = [["36 SKUs | 24 months | Excel model with Python and SQL checks"]];
 dashboard.getRange("A3:L3").format = { fill: paleGray, font: { italic: true, color: muted }, verticalAlignment: "center" };
 const cards = [
   ["A5:B7", "Inventory value", "=SUM('SKU Policy'!AA5:AA40)", '"INR "#,##0'],
@@ -229,11 +229,11 @@ for (const [range, label, formula, numberFormat] of cards) {
   dashboard.getRange(`${left}5:${right}5`).format = { fill: green, font: { bold: true, color: white }, horizontalAlignment: "center" };
   dashboard.getRange(`${left}6:${right}7`).format = { font: { bold: true, color: ink, size: 16 }, horizontalAlignment: "center", verticalAlignment: "center", numberFormat };
 }
-section(dashboard.getRange("A9:L9"), "Operating call");
+section(dashboard.getRange("A9:L9"), "Today's queue");
 dashboard.getRange("A10:D13").merge();
 dashboard.getRange("E10:H13").merge();
 dashboard.getRange("I10:L13").merge();
-dashboard.getRange("A10").values = [[`Protect service first: ${summary.stockout_risk_count} SKUs sit below expected lead-time demand in the fixed dataset.`]];
+dashboard.getRange("A10").values = [[`Check service first: ${summary.stockout_risk_count} SKUs sit below expected lead-time demand.`]];
 dashboard.getRange("E10").values = [[`${summary.reorder_now_count} SKUs need an order. Confirm supplier availability and inbound stock before release.`]];
 dashboard.getRange("I10").values = [[`Review INR ${Math.round(summary.potential_release_inr).toLocaleString("en-IN")} of potential excess only after expiry, MOQ and promotion checks.`]];
 dashboard.getRange("A10:L13").format = { fill: paleOrange, font: { color: ink, size: 11 }, wrapText: true, verticalAlignment: "center", borders: { preset: "outside", style: "thin", color: orange } };
@@ -253,18 +253,18 @@ valueChart.hasLegend = false;
 valueChart.setPosition("G15", "L29");
 
 dashboard.getRange("A31:L33").merge();
-dashboard.getRange("A31").values = [["Decision note: potential release is a review queue, not an automatic disposal instruction. Filter SKU Policy by Risk Status, Recommended Order or Potential Release to work the exceptions."]];
+dashboard.getRange("A31").values = [["Potential release is a planner review queue. Filter SKU Policy by Risk Status, Recommended Order or Potential Release to work the exceptions."]];
 dashboard.getRange("A31:L33").format = { fill: paleGray, font: { color: muted, italic: true }, wrapText: true, verticalAlignment: "center", borders: { preset: "outside", style: "thin", color: line } };
 dashboard.getRange("A:L").format.columnWidth = 13;
 dashboard.getRange("1:33").format.rowHeight = 23;
 
 // Data notes
 notes.showGridLines = false;
-title(notes, "A1:F2", "Data notes and audit trail");
+title(notes, "A1:F2", "Data notes and model logic");
 notes.getRange("A4:B4").values = [["Item", "Detail"]];
 header(notes.getRange("A4:B4"));
 notes.getRange("A5:B14").values = [
-  ["Data status", "Synthetic. No employer, client, retailer or supplier records are used."],
+  ["Data status", "Generated practice data; assumptions are visible in this workbook and the Python script."],
   ["History", "24 monthly observations from January 2024 to December 2025."],
   ["SKU count", "36 invented SKUs across four FMCG categories."],
   ["ABC rule", "Recent 12-month demand multiplied by unit cost, sorted by annual consumption value."],

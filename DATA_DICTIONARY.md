@@ -4,16 +4,16 @@
 
 | Field | Meaning |
 |---|---|
-| `sku_id` | Synthetic SKU identifier |
+| `sku_id` | SKU identifier |
 | `product_name` | Invented FMCG product description |
 | `category` | Beverages, Snacks, Personal Care or Home Care |
-| `unit_cost_inr` | Synthetic unit acquisition cost |
-| `unit_price_inr` | Synthetic selling price |
+| `unit_cost_inr` | Unit acquisition cost |
+| `unit_price_inr` | Selling price |
 | `lead_time_days` | Assumed replenishment lead time |
 | `order_cost_inr` | Assumed fixed cost per replenishment order |
 | `holding_rate` | Annual carrying-cost percentage |
-| `current_stock_units` | Synthetic on-hand stock at the snapshot date |
-| `on_order_units` | Synthetic confirmed inbound quantity |
+| `current_stock_units` | On-hand stock at the snapshot date |
+| `on_order_units` | Confirmed inbound quantity |
 
 ## `data/monthly_demand.csv`
 
@@ -21,7 +21,7 @@
 |---|---|
 | `month` | First day of the demand month |
 | `sku_id` | Joins to the SKU master |
-| `demand_units` | Synthetic requested units before stock constraints |
+| `demand_units` | Requested units before stock constraints |
 
 ## Important derived fields
 
